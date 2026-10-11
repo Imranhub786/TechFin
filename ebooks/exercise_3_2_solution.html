@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>অষ্টম শ্রেণী গণিত - অনুশীলনী ৩.২ সমাধান | Class 8 Math Exercise 3.2</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a237e;
+            --primary-light: #3949ab;
+            --accent: #ff6f00;
+            --accent-light: #ffa726;
+            --bg: #fafafa;
+            --card-bg: #ffffff;
+            --text: #212121;
+            --text-light: #616161;
+            --border: #e0e0e0;
+            --success: #2e7d32;
+            --info: #0277bd;
+            --warning: #f57f17;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans Bengali', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        /* Download Button - Fixed */
+        .download-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            padding: 12px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .download-bar .title {
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .download-btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 10px 28px;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Noto Sans Bengali', sans-serif;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .download-btn:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255,111,0,0.4);
+        }
+
+        .download-btn:disabled {
+            background: #999;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* Content Container */
+        #content {
+            max-width: 800px;
+            margin: 80px auto 40px;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .page-header {
+            text-align: center;
+            padding: 40px 30px;
+            background: linear-gradient(135deg, var(--primary), #283593);
+            color: white;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 30px rgba(26,35,126,0.3);
+        }
+
+        .page-header h1 {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .page-header .subtitle {
+            font-size: 18px;
+            font-weight: 500;
+            opacity: 0.9;
+            margin-bottom: 4px;
+        }
+
+        .page-header .chapter {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--accent-light);
+            margin-top: 12px;
+        }
+
+        .page-header .board {
+            font-size: 14px;
+            opacity: 0.7;
+            margin-top: 6px;
+        }
+
+        /* Properties Box */
+        .properties-box {
+            background: linear-gradient(135deg, #e8eaf6, #c5cae9);
+            border: 2px solid var(--primary-light);
+            border-radius: 12px;
+            padding: 24px 28px;
+            margin-bottom: 30px;
+        }
+
+        .properties-box h3 {
+            font-size: 18px;
+            color: var(--primary);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .prop-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .prop-item {
+            background: white;
+            padding: 14px 16px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+            font-size: 13px;
+        }
+
+        .prop-item .prop-title {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 14px;
+            margin-bottom: 6px;
+        }
+
+        .prop-item ul {
+            padding-left: 16px;
+            margin: 0;
+        }
+
+        .prop-item li {
+            margin-bottom: 3px;
+            line-height: 1.6;
+        }
+
+        /* Solution Card */
+        .solution-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            page-break-inside: avoid;
+        }
+
+        .solution-header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            padding: 14px 24px;
+            font-size: 17px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .solution-header .num {
+            background: var(--accent);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+
+        .solution-body {
+            padding: 24px;
+        }
+
+        /* Given / Find / Property sections */
+        .info-row {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .info-box {
+            flex: 1;
+            min-width: 200px;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .info-box.given {
+            background: #e8f5e9;
+            border: 1px solid #a5d6a7;
+        }
+
+        .info-box.find {
+            background: #fff3e0;
+            border: 1px solid #ffcc80;
+        }
+
+        .info-box.property {
+            background: #e3f2fd;
+            border: 1px solid #90caf9;
+        }
+
+        .info-box .label {
+            font-weight: 700;
+            font-size: 13px;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+        }
+
+        .info-box.given .label { color: var(--success); }
+        .info-box.find .label { color: var(--accent); }
+        .info-box.property .label { color: var(--info); }
+
+        /* Steps */
+        .steps {
+            margin-top: 16px;
+        }
+
+        .steps-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 14px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid var(--primary);
+            display: inline-block;
+        }
+
+        .step {
+            display: flex;
+            gap: 14px;
+            margin-bottom: 14px;
+            align-items: flex-start;
+        }
+
+        .step-num {
+            background: var(--primary);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .step-content {
+            flex: 1;
+            font-size: 14.5px;
+            line-height: 1.9;
+        }
+
+        .step-content .formula {
+            background: #f5f5f5;
+            padding: 8px 14px;
+            border-radius: 6px;
+            margin: 6px 0;
+            font-weight: 500;
+            border-left: 3px solid var(--primary);
+            font-size: 15px;
+        }
+
+        .step-content .highlight {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Answer Box */
+        .answer-box {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border: 2px solid var(--success);
+            border-radius: 10px;
+            padding: 16px 20px;
+            margin-top: 16px;
+        }
+
+        .answer-box .answer-label {
+            font-weight: 800;
+            color: var(--success);
+            font-size: 15px;
+            margin-bottom: 6px;
+        }
+
+        .answer-box .answer-text {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1b5e20;
+        }
+
+        /* Verification */
+        .verify-box {
+            background: #fff8e1;
+            border: 1px dashed #ffc107;
+            border-radius: 8px;
+            padding: 10px 14px;
+            margin-top: 10px;
+            font-size: 13px;
+            color: #795548;
+        }
+
+        .verify-box .verify-label {
+            font-weight: 700;
+            color: var(--warning);
+        }
+
+        /* Section Divider */
+        .section-divider {
+            text-align: center;
+            margin: 36px 0;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+            position: relative;
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 30%;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--primary), transparent);
+        }
+
+        .section-divider::before { left: 0; }
+        .section-divider::after { right: 0; }
+
+        /* Footer */
+        .page-footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-light);
+            font-size: 13px;
+            margin-top: 40px;
+            border-top: 1px solid var(--border);
+        }
+
+        /* Print Styles */
+        @media print {
+            .download-bar { display: none !important; }
+            #content { margin-top: 0; }
+            .page-header {
+                background: #1a237e !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .solution-header {
+                background: #1a237e !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .solution-card {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            body { font-size: 13px; }
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .prop-grid { grid-template-columns: 1fr; }
+            .info-row { flex-direction: column; }
+            .page-header h1 { font-size: 22px; }
+        }
+
+        /* Loading overlay */
+        .loading-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.6);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loading-overlay.active {
+            display: flex;
+        }
+
+        .loading-box {
+            background: white;
+            padding: 40px 50px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid #e0e0e0;
+            border-top: 4px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 16px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .loading-text {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+
+<!-- Loading Overlay -->
+<div class="loading-overlay" id="loadingOverlay">
+    <div class="loading-box">
+        <div class="spinner"></div>
+        <div class="loading-text">PDF তৈরি হচ্ছে... অপেক্ষা করুন</div>
+    </div>
+</div>
+
+<!-- Download Bar -->
+<div class="download-bar" id="downloadBar">
+    <span class="title">📘 অষ্টম শ্রেণী গণিত - অনুশীলনী ৩.২</span>
+    <button class="download-btn" id="downloadBtn" onclick="downloadPDF()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+        PDF ডাউনলোড করুন
+    </button>
+</div>
+
+<!-- Main Content -->
+<div id="content">
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>অষ্টম শ্রেণী গণিত</h1>
+        <div class="subtitle">অসম বাংলা মাধ্যম</div>
+        <div class="chapter">অধ্যায় ৩ — চতুর্ভুজ</div>
+        <div class="chapter" style="font-size:20px; margin-top:8px;">অনুশীলনী ৩.২ — ধাপে ধাপে সমাধান</div>
+        <div class="board">SEBA / SCERT, অসম</div>
+    </div>
+
+    <!-- Properties Reference Box -->
+    <div class="properties-box">
+        <h3>📐 চতুর্ভুজের গুরুত্বপূর্ণ ধর্মসমূহ (সূত্র)</h3>
+        <div class="prop-grid">
+            <div class="prop-item">
+                <div class="prop-title">▰ সামান্তরিক (Parallelogram)</div>
+                <ul>
+                    <li>বিপরীত বাহু সমান ও সমান্তরাল</li>
+                    <li>বিপরীত কোণ সমান</li>
+                    <li>সন্নিহিত কোণের সমষ্টি = 180°</li>
+                    <li>কর্ণদ্বয় পরস্পরকে সমদ্বিখণ্ডিত করে</li>
+                </ul>
+            </div>
+            <div class="prop-item">
+                <div class="prop-title">◆ রম্বস (Rhombus)</div>
+                <ul>
+                    <li>সকল বাহু সমান</li>
+                    <li>বিপরীত কোণ সমান</li>
+                    <li>কর্ণদ্বয় পরস্পরকে সমকোণে সমদ্বিখণ্ডিত করে</li>
+                </ul>
+            </div>
+            <div class="prop-item">
+                <div class="prop-title">▭ আয়তক্ষেত্র (Rectangle)</div>
+                <ul>
+                    <li>বিপরীত বাহু সমান</li>
+                    <li>প্রতিটি কোণ = 90°</li>
+                    <li>কর্ণদ্বয় সমান ও পরস্পরকে সমদ্বিখণ্ডিত করে</li>
+                </ul>
+            </div>
+            <div class="prop-item">
+                <div class="prop-title">□ বর্গক্ষেত্র (Square)</div>
+                <ul>
+                    <li>সকল বাহু সমান</li>
+                    <li>প্রতিটি কোণ = 90°</li>
+                    <li>কর্ণদ্বয় সমান ও সমকোণে সমদ্বিখণ্ডিত করে</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Question Statement -->
+    <div class="solution-card" style="border-left: 4px solid var(--accent);">
+        <div class="solution-header" style="background: linear-gradient(135deg, #e65100, #ff6f00);">
+            <span>📝</span>
+            <span>প্রশ্ন ১</span>
+        </div>
+        <div class="solution-body" style="font-size: 14.5px;">
+            নীচে অঙ্কিত বিভিন্ন চতুর্ভুজের ক্ষেত্রে প্রত্যেক রাশি (দৈর্ঘ্য/কোণ)-র মান বের করো। একপ্রকার চতুর্ভুজের বিশেষ ধর্ম থেকে দেখাও তীর চিহ্নের (→) সাহায্যে দেখানো রেখাংশ ও কোণগুলি সমান/সমান্তরাল।
+        </div>
+    </div>
+
+    <!-- ==================== SOLUTION (i) ==================== -->
+    <div class="solution-card">
+        <div class="solution-header">
+            <div class="num">i</div>
+            <span>সামান্তরিক — কোণ নির্ণয়</span>
+        </div>
+        <div class="solution-body">
+            <div class="info-row">
+                <div class="info-box given">
+                    <div class="label">✅ দেওয়া আছে</div>
+                    ABCD একটি সামান্তরিক।<br>
+                    ∠A = 110°
+                </div>
+                <div class="info-box find">
+                    <div class="label">🔍 বের করতে হবে</div>
+                    ∠B, ∠C এবং ∠D-এর মান
+                </div>
+            </div>
+
+            <div class="info-box property" style="margin-bottom: 16px;">
+                <div class="label">📐 ব্যবহৃত ধর্ম</div>
+                ① সামান্তরিকের সন্নিহিত কোণের সমষ্টি = 180° (পরিপূরক কোণ)<br>
+                ② সামান্তরিকের বিপরীত কোণ সমান
+            </div>
+
+            <div class="steps">
+                <div class="steps-title">📖 সমাধান</div>
+
+                <div class="step">
+                    <div class="step-num">১</div>
+                    <div class="step-content">
+                        <strong>∠B নির্ণয়:</strong><br>
+                        আমরা জানি, সামান্তরিকের সন্নিহিত কোণের সমষ্টি 180°।
+                        <div class="formula">
+                            ∠A + ∠B = 180°<br>
+                            ⟹ 110° + ∠B = 180°<br>
+                            ⟹ ∠B = 180° − 110°<br>
+                            ⟹ <span class="highlight">∠B = 70°</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">২</div>
+                    <div class="step-content">
+                        <strong>∠C নির্ণয়:</strong><br>
+                        সামান্তরিকের বিপরীত কোণ সমান। ∠A ও ∠C বিপরীত কোণ।
+                        <div class="formula">
+                            ∠C = ∠A = <span class="highlight">110°</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">৩</div>
+                    <div class="step-content">
+                        <strong>∠D নির্ণয়:</strong><br>
+                        ∠B ও ∠D বিপরীত কোণ।
+                        <div class="formula">
+                            ∠D = ∠B = <span class="highlight">70°</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="answer-box">
+                <div class="answer-label">✅ উত্তর</div>
+                <div class="answer-text">∠A = 110°, ∠B = 70°, ∠C = 110°, ∠D = 70°</div>
+            </div>
+
+            <div class="verify-box">
+                <span class="verify-label">🔎 যাচাই:</span>
+                110° + 70° + 110° + 70° = 360° ✓ (চতুর্ভুজের চারটি কোণের সমষ্টি সর্বদা 360°)
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== SOLUTION (ii) ==================== -->
+    <div class="solution-card">
+        <div class="solution-header">
+            <div class="num">ii</div>
+            <span>সামান্তরিক — কোণ নির্ণয় (a, b)</span>
+        </div>
+        <div class="solution-body">
+            <div class="info-row">
+                <div class="info-box given">
+                    <div class="label">✅ দেওয়া আছে</div>
+                    ABCD একটি সামান্তরিক।<br>
+                    একটি কোণ = 75°
+                </div>
+                <div class="info-box find">
+                    <div class="label">🔍 বের করতে হবে</div>
+                    a ও b-এর মান (অজানা কোণ)
+                </div>
+            </div>
+
+            <div class="info-box property" style="margin-bottom: 16px;">
+                <div class="label">📐 ব্যবহৃত ধর্ম</div>
+                সামান্তরিকের সন্নিহিত কোণ পরিপূরক এবং বিপরীত কোণ সমান।
+            </div>
+
+            <div class="steps">
+                <div class="steps-title">📖 সমাধান</div>
+
+                <div class="step">
+                    <div class="step-num">১</div>
+                    <div class="step-content">
+                        <strong>a নির্ণয় (সন্নিহিত কোণ):</strong><br>
+                        সামান্তরিকের সন্নিহিত কোণের সমষ্টি = 180°
+                        <div class="formula">
+                            a + 75° = 180°<br>
+                            ⟹ a = 180° − 75°<br>
+                            ⟹ <span class="highlight">a = 105°</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">২</div>
+                    <div class="step-content">
+                        <strong>b নির্ণয় (বিপরীত কোণ):</strong><br>
+                        সামান্তরিকের বিপরীত কোণ সমান।
+                        <div class="formula">
+                            b = 75° (দেওয়া কোণের বিপরীত কোণ)<br>
+                            ⟹ <span class="highlight">b = 75°</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="answer-box">
+                <div class="answer-label">✅ উত্তর</div>
+                <div class="answer-text">a = 105°, b = 75°</div>
+            </div>
+
+            <div class="verify-box">
+                <span class="verify-label">🔎 যাচাই:</span>
+                75° + 105° + 75° + 105° = 360° ✓
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== SOLUTION (iii) ==================== -->
+    <div class="solution-card">
+        <div class="solution-header">
+            <div class="num">iii</div>
+            <span>সামান্তরিক — কোণ নির্ণয়</span>
+        </div>
+        <div class="solution-body">
+            <div class="info-row">
+                <div class="info-box given">
+                    <div class="label">✅ দেওয়া আছে</div>
+                    ABCD একটি সামান্তরিক (তির্যক/হেলানো)।<br>
+                    একটি কোণ = 100°
+                </div>
+                <div class="info-box find">
+                    <div class="label">🔍 বের করতে হবে</div>
+                    অন্যান্য কোণের মান
+                </div>
+            </div>
+
+            <div class="info-box property" style="margin-bottom: 16px;">
+                <div class="label">📐 ব্যবহৃত ধর্ম</div>
+                সামান্তরিকের সন্নিহিত কোণ পরিপূরক (সমষ্টি 180°) এবং বিপরীত কোণ সমান।
+            </div>
+
+            <div class="steps">
+                <div class="steps-title">📖 সমাধান</div>
+
+                <div class="step">
+                    <div class="step-num">১</div>
+                    <div class="step-content">
+                        <strong>সন্নিহিত কোণ নির্ণয়:</strong>
+                        <div class="formula">
+                            সন্নিহিত কোণ = 180° − 100° = <span class="highlight">80°</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">২</div>
+                    <div class="step-content">
+                        <strong>বিপরীত কোণ নির্ণয়:</strong><br>
+                        বিপরীত কোণ সমান হয়।
+                        <div class="formula">
+                            বিপরীত কোণ = <span class="highlight">100°</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">৩</div>
+                    <div class="step-content">
+                        <strong>চতুর্থ কোণ নির্ণয়:</strong><br>
+                        80°-এর বিপরীত কোণ = <span class="highlight">80°</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="answer-box">
+                <div class="answer-label">✅ উত্তর</div>
+                <div class="answer-text">কোণগুলি হলো: 100°, 80°, 100°, 80°</div>
+            </div>
+
+            <div class="verify-box">
+                <span class="verify-label">🔎 যাচাই:</span>
+                100° + 80° + 100° + 80° = 360° ✓
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== SOLUTION (iv) ==================== -->
+    <div class="solution-card">
+        <div class="solution-header">
+            <div class="num">iv</div>
+            <span>সামান্তরিক — বাহুর দৈর্ঘ্য নির্ণয় (a, b)</span>
+        </div>
+        <div class="solution-body">
+            <div class="info-row">
+                <div class="info-box given">
+                    <div class="label">✅ দেওয়া আছে</div>
+                    ABCD একটি সামান্তরিক।<br>
+                    উপরের বাহু (AB) = 24<br>
+                    ডান বাহু (BC) = 9<br>
+                    নীচের বাহু (CD) = 4a<br>
+                    বাম বাহু (DA) = 2b + 1
+                </div>
+                <div class="info-box find">
+                    <div class="label">🔍 বের করতে হবে</div>
+                    a এবং b-এর মান
+                </div>
+            </div>
+
+            <div class="info-box property" style="margin-bottom: 16px;">
+                <div class="label">📐 ব্যবহৃত ধর্ম</div>
+                সামান্তরিকের বিপরীত বাহু সমান। অর্থাৎ AB = CD এবং BC = DA
+            </div>
+
+            <div class="steps">
+                <div class="steps-title">📖 সমাধান</div>
+
+                <div class="step">
+                    <div class="step-num">১</div>
+                    <div class="step-content">
+                        <strong>a-এর মান নির্ণয়:</strong><br>
+                        সামান্তরিকের বিপরীত বাহু সমান, তাই AB = CD
+                        <div class="formula">
+                            24 = 4a<br>
+                            ⟹ 4a = 24<br>
+                            ⟹ a = 24 ÷ 4<br>
+                            ⟹ <span class="highlight">a = 6</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">২</div>
+                    <div class="step-content">
+                        <strong>b-এর মান নির্ণয়:</strong><br>
+                        সামান্তরিকের বিপরীত বাহু সমান, তাই BC = DA
+                        <div class="formula">
+                            9 = 2b + 1<br>
+                            ⟹ 2b + 1 = 9<br>
+                            ⟹ 2b = 9 − 1<br>
+                            ⟹ 2b = 8<br>
+                            ⟹ b = 8 ÷ 2<br>
+                            ⟹ <span class="highlight">b = 4</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="answer-box">
+                <div class="answer-label">✅ উত্তর</div>
+                <div class="answer-text">a = 6, b = 4</div>
+            </div>
+
+            <div class="verify-box">
+                <span class="verify-label">🔎 যাচাই:</span>
+                CD = 4a = 4 × 6 = 24 = AB ✓ &nbsp;|&nbsp;
+                DA = 2b + 1 = 2 × 4 + 1 = 9 = BC ✓
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== SOLUTION (v) ==================== -->
+    <div class="solution-card">
+        <div class="solution-header">
+            <div class="num">v</div>
+            <span>রম্বস — কর্ণ ও বাহু নির্ণয় (a, b, c)</span>
+        </div>
+        <div class="solution-body">
+            <div class="info-row">
+                <div class="info-box given">
+                    <div class="label">✅ দেওয়া আছে</div>
+                    ABCD একটি রম্বস।<br>
+                    কর্ণদ্বয়ের ছেদবিন্দু O<br>
+                    একটি অর্ধ-কর্ণ = 8<br>
+                    অন্য অর্ধ-কর্ণ = 15<br>
+                    একটি বাহু = 17
+                </div>
+                <div class="info-box find">
+                    <div class="label">🔍 বের করতে হবে</div>
+                    a, b এবং c-এর মান
+                </div>
+            </div>
+
+            <div class="info-box property" style="margin-bottom: 16px;">
+                <div class="label">📐 ব্যবহৃত ধর্ম</div>
+                ① রম্বসের কর্ণদ্বয় পরস্পরকে সমকোণে সমদ্বিখণ্ডিত করে।<br>
+                ② রম্বসের সকল বাহু সমান।<br>
+                ③ পিথাগোরাসের উপপাদ্য: কর্ণ² = ভূমি² + লম্ব²
+            </div>
+
+            <div class="steps">
+                <div class="steps-title">📖 সমাধান</div>
+
+                <div class="step">
+                    <div class="step-num">১</div>
+                    <div class="step-content">
+                        <strong>কর্ণের ধর্ম প্রয়োগ:</strong><br>
+                        রম্বসের কর্ণদ্বয় পরস্পরকে সমদ্বিখণ্ডিত করে।<br>
+                        অর্থাৎ, যদি একটি কর্ণের অর্ধাংশ = 8 হয়, তবে বিপরীত অর্ধাংশও = 8<br>
+                        এবং অন্য কর্ণের অর্ধাংশ = 15 হলে, বিপরীত অর্ধাংশও = 15
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">২</div>
+                    <div class="step-content">
+                        <strong>a-এর মান নির্ণয়:</strong>
+                        <div class="formula">
+                            a = 15 (কর্ণের বিপরীত অর্ধাংশ, কারণ কর্ণ সমদ্বিখণ্ডিত হয়)<br>
+                            ⟹ <span class="highlight">a = 15</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">৩</div>
+                    <div class="step-content">
+                        <strong>b-এর মান নির্ণয়:</strong>
+                        <div class="formula">
+                            b = 8 (কর্ণের বিপরীত অর্ধাংশ, কারণ কর্ণ সমদ্বিখণ্ডিত হয়)<br>
+                            ⟹ <span class="highlight">b = 8</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">৪</div>
+                    <div class="step-content">
+                        <strong>c-এর মান নির্ণয়:</strong><br>
+                        রম্বসের সকল বাহু সমান। একটি বাহু = 17
+                        <div class="formula">
+                            c = 17 (রম্বসের সকল বাহু সমান)<br>
+                            ⟹ <span class="highlight">c = 17</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">৫</div>
+                    <div class="step-content">
+                        <strong>পিথাগোরাস উপপাদ্যে যাচাই:</strong><br>
+                        কর্ণদ্বয় সমকোণে ছেদ করে, তাই:
+                        <div class="formula">
+                            বাহু = √(অর্ধ-কর্ণ₁² + অর্ধ-কর্ণ₂²)<br>
+                            = √(8² + 15²)<br>
+                            = √(64 + 225)<br>
+                            = √289<br>
+                            = <span class="highlight">17</span> ✓ (দেওয়া বাহুর সমান)
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="answer-box">
+                <div class="answer-label">✅ উত্তর</div>
+                <div class="answer-text">a = 15, b = 8, c = 17</div>
+            </div>
+
+            <div class="verify-box">
+                <span class="verify-label">🔎 যাচাই:</span>
+                সম্পূর্ণ কর্ণ₁ = 8 + 8 = 16, কর্ণ₂ = 15 + 15 = 30<br>
+                বাহু = √(8² + 15²) = √289 = 17 ✓
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== SOLUTION (vi) ==================== -->
+    <div class="solution-card">
+        <div class="solution-header">
+            <div class="num">vi</div>
+            <span>সামান্তরিক — কোণ নির্ণয়</span>
+        </div>
+        <div class="solution-body">
+            <div class="info-row">
+                <div class="info-box given">
+                    <div class="label">✅ দেওয়া আছে</div>
+                    ABCD একটি সামান্তরিক।<br>
+                    একটি কোণ = 75°<br>
+                    অজানা কোণ/বাহু: a, b
+                </div>
+                <div class="info-box find">
+                    <div class="label">🔍 বের করতে হবে</div>
+                    a ও b-এর মান
+                </div>
+            </div>
+
+            <div class="info-box property" style="margin-bottom: 16px;">
+                <div class="label">📐 ব্যবহৃত ধর্ম</div>
+                সামান্তরিকের সন্নিহিত কোণ পরিপূরক (সমষ্টি = 180°) এবং বিপরীত বাহু সমান ও সমান্তরাল।
+            </div>
+
+            <div class="steps">
+                <div class="steps-title">📖 সমাধান</div>
+
+                <div class="step">
+                    <div class="step-num">১</div>
+                    <div class="step-content">
+                        <strong>a নির্ণয় (সন্নিহিত কোণ):</strong>
+                        <div class="formula">
+                            a = 180° − 75° = <span class="highlight">105°</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">২</div>
+                    <div class="step-content">
+                        <strong>b নির্ণয়:</strong><br>
+                        সামান্তরিকের বিপরীত কোণ সমান।
+                        <div class="formula">
+                            <span class="highlight">b = 75°</span> (দেওয়া কোণের বিপরীত কোণ)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">৩</div>
+                    <div class="step-content">
+                        <strong>তীর চিহ্নের (→) ব্যাখ্যা:</strong><br>
+                        সামান্তরিকের বিপরীত বাহু সমান ও সমান্তরাল। তীর চিহ্ন দ্বারা সমান্তরাল বাহুগুলি দেখানো হয়েছে।
+                    </div>
+                </div>
+            </div>
+
+            <div class="answer-box">
+                <div class="answer-label">✅ উত্তর</div>
+                <div class="answer-text">a = 105°, b = 75°<br>কোণগুলি: 75°, 105°, 75°, 105°</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section Divider -->
+    <div class="section-divider">আয়তক্ষেত্র ও বর্গক্ষেত্র</div>
+
+    <!-- ==================== SOLUTION (vii) ==================== -->
+    <div class="solution-card">
+        <div class="solution-header">
+            <div class="num">vii</div>
+            <span>আয়তক্ষেত্র — কর্ণ থেকে x, y নির্ণয়</span>
+        </div>
+        <div class="solution-body">
+            <div class="info-row">
+                <div class="info-box given">
+                    <div class="label">✅ দেওয়া আছে</div>
+                    ABCD একটি আয়তক্ষেত্র।<br>
+                    কর্ণ AC = 10<br>
+                    কর্ণদ্বয়ের ছেদবিন্দু O<br>
+                    OD = x, OB = y
+                </div>
+                <div class="info-box find">
+                    <div class="label">🔍 বের করতে হবে</div>
+                    x = ? এবং y = ?
+                </div>
+            </div>
+
+            <div class="info-box property" style="margin-bottom: 16px;">
+                <div class="label">📐 ব্যবহৃত ধর্ম</div>
+                ① আয়তক্ষেত্রের কর্ণদ্বয় সমান: AC = BD<br>
+                ② কর্ণদ্বয় পরস্পরকে সমদ্বিখণ্ডিত করে: OA = OC = OB = OD
+            </div>
+
+            <div class="steps">
+                <div class="steps-title">📖 সমাধান</div>
+
+                <div class="step">
+                    <div class="step-num">১</div>
+                    <div class="step-content">
+                        <strong>কর্ণের দৈর্ঘ্য নির্ণয়:</strong><br>
+                        আয়তক্ষেত্রে কর্ণদ্বয় সমান, তাই:
+                        <div class="formula">
+                            AC = BD = 10
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">২</div>
+                    <div class="step-content">
+                        <strong>x নির্ণয় (OD):</strong><br>
+                        কর্ণদ্বয় পরস্পরকে সমদ্বিখণ্ডিত করে। O হলো BD-এর মধ্যবিন্দু।
+                        <div class="formula">
+                            OD = BD ÷ 2 = 10 ÷ 2 = <span class="highlight">5</span><br>
+                            ∴ <span class="highlight">x = 5</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">৩</div>
+                    <div class="step-content">
+                        <strong>y নির্ণয় (OB):</strong><br>
+                        O হলো BD-এর মধ্যবিন্দু, তাই OB = OD
+                        <div class="formula">
+                            OB = BD ÷ 2 = 10 ÷ 2 = <span class="highlight">5</span><br>
+                            ∴ <span class="highlight">y = 5</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="answer-box">
+                <div class="answer-label">✅ উত্তর</div>
+                <div class="answer-text">x = OD = 5, y = OB = 5</div>
+            </div>
+
+            <div class="verify-box">
+                <span class="verify-label">🔎 যাচাই:</span>
+                OA = OC = AC ÷ 2 = 10 ÷ 2 = 5<br>
+                OB = OD = BD ÷ 2 = 10 ÷ 2 = 5<br>
+                OA = OB = OC = OD = 5 ✓ (কর্ণ সমান ও সমদ্বিখণ্ডিত)
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== SOLUTION (viii) ==================== -->
+    <div class="solution-card">
+        <div class="solution-header">
+            <div class="num">viii</div>
+            <span>বর্গক্ষেত্র — x + y + z নির্ণয়</span>
+        </div>
+        <div class="solution-body">
+            <div class="info-row">
+                <div class="info-box given">
+                    <div class="label">✅ দেওয়া আছে</div>
+                    ABCD একটি বর্গক্ষেত্র।<br>
+                    AB = 6 (নীচের বাহু)<br>
+                    DC = y (উপরের বাহু)<br>
+                    BC = x (ডান বাহু)<br>
+                    AD = z (বাম বাহু)
+                </div>
+                <div class="info-box find">
+                    <div class="label">🔍 বের করতে হবে</div>
+                    x + y + z = ?
+                </div>
+            </div>
+
+            <div class="info-box property" style="margin-bottom: 16px;">
+                <div class="label">📐 ব্যবহৃত ধর্ম</div>
+                বর্গক্ষেত্রের সকল বাহু সমান: AB = BC = CD = DA
+            </div>
+
+            <div class="steps">
+                <div class="steps-title">📖 সমাধান</div>
+
+                <div class="step">
+                    <div class="step-num">১</div>
+                    <div class="step-content">
+                        <strong>বর্গক্ষেত্রের ধর্ম প্রয়োগ:</strong><br>
+                        বর্গক্ষেত্রের সকল বাহু সমান।<br>
+                        AB = 6 হলে, অন্যান্য সকল বাহুও = 6
+                        <div class="formula">
+                            AB = BC = CD = DA = 6
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">২</div>
+                    <div class="step-content">
+                        <strong>x, y, z-এর মান:</strong>
+                        <div class="formula">
+                            x = BC = 6<br>
+                            y = DC = 6<br>
+                            z = AD = 6
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">৩</div>
+                    <div class="step-content">
+                        <strong>x + y + z নির্ণয়:</strong>
+                        <div class="formula">
+                            x + y + z = 6 + 6 + 6 = <span class="highlight">18</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="answer-box">
+                <div class="answer-label">✅ উত্তর</div>
+                <div class="answer-text">x + y + z = 18</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== SOLUTION (ix) ==================== -->
+    <div class="solution-card">
+        <div class="solution-header">
+            <div class="num">ix</div>
+            <span>বর্গক্ষেত্র — x + y + z নির্ণয়</span>
+        </div>
+        <div class="solution-body">
+            <div class="info-row">
+                <div class="info-box given">
+                    <div class="label">✅ দেওয়া আছে</div>
+                    ABCD একটি বর্গক্ষেত্র।<br>
+                    AB = 7 (নীচের বাহু)<br>
+                    DC = y (উপরের বাহু)<br>
+                    BC = x (ডান বাহু)<br>
+                    AD = z (বাম বাহু)
+                </div>
+                <div class="info-box find">
+                    <div class="label">🔍 বের করতে হবে</div>
+                    x + y + z = ?
+                </div>
+            </div>
+
+            <div class="info-box property" style="margin-bottom: 16px;">
+                <div class="label">📐 ব্যবহৃত ধর্ম</div>
+                বর্গক্ষেত্রের সকল বাহু সমান: AB = BC = CD = DA
+            </div>
+
+            <div class="steps">
+                <div class="steps-title">📖 সমাধান</div>
+
+                <div class="step">
+                    <div class="step-num">১</div>
+                    <div class="step-content">
+                        <strong>বর্গক্ষেত্রের ধর্ম প্রয়োগ:</strong><br>
+                        বর্গক্ষেত্রের সকল বাহু সমান।
+                        <div class="formula">
+                            AB = BC = CD = DA = 7
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">২</div>
+                    <div class="step-content">
+                        <strong>x, y, z-এর মান:</strong>
+                        <div class="formula">
+                            x = BC = 7<br>
+                            y = DC = 7<br>
+                            z = AD = 7
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">৩</div>
+                    <div class="step-content">
+                        <strong>x + y + z নির্ণয়:</strong>
+                        <div class="formula">
+                            x + y + z = 7 + 7 + 7 = <span class="highlight">21</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="answer-box">
+                <div class="answer-label">✅ উত্তর</div>
+                <div class="answer-text">x + y + z = 21</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Summary Table -->
+    <div class="solution-card" style="border-top: 4px solid var(--accent);">
+        <div class="solution-header" style="background: linear-gradient(135deg, #2e7d32, #43a047);">
+            <span>📋</span>
+            <span>সকল উত্তরের সারসংক্ষেপ</span>
+        </div>
+        <div class="solution-body">
+            <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+                <thead>
+                    <tr style="background: #e8f5e9;">
+                        <th style="padding: 10px; border: 1px solid #c8e6c9; text-align: center;">চিত্র</th>
+                        <th style="padding: 10px; border: 1px solid #c8e6c9; text-align: center;">চতুর্ভুজের ধরন</th>
+                        <th style="padding: 10px; border: 1px solid #c8e6c9; text-align: center;">উত্তর</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding: 8px 10px; border: 1px solid #e0e0e0; text-align: center; font-weight: 600;">(i)</td>
+                        <td style="padding: 8px 10px; border: 1px solid #e0e0e0;">সামান্তরিক</td>
+                        <td style="padding: 8px 10px; border: 1px solid #e0e0e0;">∠B = 70°, ∠C = 110°, ∠D = 70°</td>
+                    </tr>
+                    <tr style="background: #f9f9f9;">
+                        <td style="padding: 8px 10px; border: 1px solid #e0e0e0; text-align: center; font-weight: 600;">(ii)</td>
+                        <td style="padding: 8px 10px; border: 1px solid #e0e0e0;">সামান্তরিক</td>
+                        <td style="padding: 8px 10px; border: 1px solid #e0e0e0;">a = 105°, b = 75°</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 10px; border: 1px solid #e0e0e0; text-align: center; font-weight: 600;">(iii)</td>
+                        <td style="padding: 8px 10px; border: 1px solid #e0e0e0;">সামান্তরিক</td>
+                        <td style="padding: 8px 10px; border: 1px solid #e0e0e0;">কোণগুলি: 100°, 80°, 100°, 80°</td>
+                    </tr>
+                    <tr style="background: #f9f9f9;">
+                        <td style="padding: 8px 10px; border: 1px solid #e0e0e0; text-align: center; font-weight: 600;">(iv)</td>
+                        <td style="padding: 8px 10px; border: 1px solid #e0e0e0;">সামান্তরিক</td>
+                        <td style="padding: 8px 10px; border: 1px solid #e0e0e0;"><strong>a = 6, b = 4</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 10px; border: 1px solid #e0e0e0; text-align: center; font-weight: 600;">(v)</td>
+                        <td style="padding: 8px 10px; border: 1px solid #e0e0e0;">রম্বস</td>
+                        <td style="padding: 8px 10px; border: 1px solid #e0e0e0;"><strong>a = 15, b = 8, c = 17</strong></td>
+                    </tr>
+                    <tr style="background: #f9f9f9;">
+                        <td style="padding: 8px 10px; border: 1px solid #e0e0e0; text-align: center; font-weight: 600;">(vi)</td>
+                        <td style="padding: 8px 10px; border: 1px solid #e0e0e0;">সামান্তরিক</td>
+                        <td style="padding: 8px 10px; border: 1px solid #e0e0e0;">a = 105°, b = 75°</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 10px; border: 1px solid #e0e0e0; text-align: center; font-weight: 600;">(vii)</td>
+                        <td style="padding: 8px 10px; border: 1px solid #e0e0e0;">আয়তক্ষেত্র</td>
+                        <td style="padding: 8px 10px; border: 1px solid #e0e0e0;"><strong>x = 5, y = 5</strong></td>
+                    </tr>
+                    <tr style="background: #f9f9f9;">
+                        <td style="padding: 8px 10px; border: 1px solid #e0e0e0; text-align: center; font-weight: 600;">(viii)</td>
+                        <td style="padding: 8px 10px; border: 1px solid #e0e0e0;">বর্গক্ষেত্র</td>
+                        <td style="padding: 8px 10px; border: 1px solid #e0e0e0;"><strong>x + y + z = 18</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 10px; border: 1px solid #e0e0e0; text-align: center; font-weight: 600;">(ix)</td>
+                        <td style="padding: 8px 10px; border: 1px solid #e0e0e0;">বর্গক্ষেত্র</td>
+                        <td style="padding: 8px 10px; border: 1px solid #e0e0e0;"><strong>x + y + z = 21</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="page-footer">
+        অষ্টম শ্রেণী গণিত | অনুশীলনী ৩.২ | চতুর্ভুজ | SEBA/SCERT অসম বাংলা মাধ্যম<br>
+        <span style="font-size: 11px; color: #999;">ধাপে ধাপে সমাধান — পৃষ্ঠা ১৩৩</span>
+    </div>
+
+</div>
+
+<!-- html2pdf.js Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+<script>
+    function downloadPDF() {
+        const btn = document.getElementById('downloadBtn');
+        const overlay = document.getElementById('loadingOverlay');
+        const bar = document.getElementById('downloadBar');
+        
+        // Show loading
+        btn.disabled = true;
+        btn.innerHTML = '⏳ তৈরি হচ্ছে...';
+        overlay.classList.add('active');
+        
+        // Hide download bar for PDF
+        bar.style.display = 'none';
+        
+        // Adjust content margin for PDF
+        const content = document.getElementById('content');
+        const originalMargin = content.style.marginTop;
+        content.style.marginTop = '0';
+        
+        const opt = {
+            margin: [12, 12, 12, 12],
+            filename: 'অষ্টম_শ্রেণী_গণিত_অনুশীলনী_৩.২_সমাধান.pdf',
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { 
+                scale: 2, 
+                useCORS: true,
+                letterRendering: true,
+                logging: false
+            },
+            jsPDF: { 
+                unit: 'mm', 
+                format: 'a4', 
+                orientation: 'portrait' 
+            },
+            pagebreak: { 
+                mode: ['avoid-all', 'css', 'legacy'],
+                before: '.section-divider'
+            }
+        };
+        
+        html2pdf().set(opt).from(content).save().then(function() {
+            // Restore UI
+            bar.style.display = 'flex';
+            content.style.marginTop = originalMargin;
+            btn.disabled = false;
+            btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg> PDF ডাউনলোড করুন';
+            overlay.classList.remove('active');
+        }).catch(function(err) {
+            console.error('PDF generation error:', err);
+            bar.style.display = 'flex';
+            content.style.marginTop = originalMargin;
+            btn.disabled = false;
+            btn.innerHTML = '❌ আবার চেষ্টা করুন';
+            overlay.classList.remove('active');
+            setTimeout(() => {
+                btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg> PDF ডাউনলোড করুন';
+            }, 3000);
+        });
+    }
+</script>
+
+</body>
+</html>

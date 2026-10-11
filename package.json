@@ -1,0 +1,21 @@
+{
+  "name": "techfin-netpro40",
+  "version": "1.0.0",
+  "description": "TechFin - NetPro 40 Computer Network Fundamentals & Troubleshooting Interactive E-Book Application",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "networking",
+    "ebook",
+    "netpro40",
+    "techfin",
+    "troubleshooting"
+  ],
+  "author": "Imran Hussain",
+  "license": "ISC",
+  "dependencies": {
+    "nodemailer": "^10.0.16"
+  }
+}

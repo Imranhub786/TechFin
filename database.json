@@ -1,0 +1,348 @@
+{
+  "users": [
+    {
+      "id": "usr_admin",
+      "name": "Imran Hussain",
+      "email": "admin@techfin.com",
+      "passwordHash": "240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9",
+      "role": "admin",
+      "emailVerified": true,
+      "enrolledInNetPro40": true,
+      "progress": {
+        "completedTopics": [],
+        "currentTopic": "day1"
+      },
+      "createdAt": "2026-10-07T19:34:38.991Z"
+    },
+    {
+      "id": "usr_demo",
+      "name": "Reader Demo",
+      "email": "student@techfin.com",
+      "passwordHash": "703b0a3d6ad75b649a28adde7d83c6251da457549263bc7ff45ec709b0a8448b",
+      "role": "user",
+      "emailVerified": true,
+      "enrolledInNetPro40": true,
+      "progress": {
+        "completedTopics": [
+          "day1",
+          "day2"
+        ],
+        "currentTopic": "day3"
+      },
+      "createdAt": "2026-10-07T19:34:38.993Z"
+    },
+    {
+      "id": "usr_g_1791402079227",
+      "name": "Imran Hussain (Google)",
+      "email": "imran.techfin@gmail.com",
+      "passwordHash": "google_oauth_authorized",
+      "role": "user",
+      "provider": "google",
+      "createdAt": "2026-10-07T19:41:19.232Z"
+    },
+    {
+      "id": "usr_1791403165810",
+      "name": "Imran Hussain",
+      "email": "abc@gmail.com",
+      "passwordHash": "bad2764d4243c92f16b102403dfd2e29273f2c05c01ee6e19ca76ab1c881d7d4",
+      "role": "user",
+      "createdAt": "2026-10-07T19:59:25.827Z"
+    },
+    {
+      "id": "usr_1791403730294",
+      "name": "Test User",
+      "email": "testuser@gmail.com",
+      "passwordHash": "ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f",
+      "role": "user",
+      "emailVerified": true,
+      "createdAt": "2026-10-07T20:08:50.294Z"
+    },
+    {
+      "id": "usr_g_1791404497431",
+      "name": "Google Verified User",
+      "email": "user.authenticated@gmail.com",
+      "passwordHash": "google_authenticated",
+      "role": "user",
+      "emailVerified": true,
+      "provider": "google",
+      "createdAt": "2026-10-07T20:21:37.431Z"
+    },
+    {
+      "id": "usr_g_1791443912774",
+      "name": "razaansari61501",
+      "email": "razaansari61501@gmail.com",
+      "passwordHash": "google_authenticated",
+      "role": "user",
+      "emailVerified": true,
+      "enrolledInNetPro40": true,
+      "progress": {
+        "completedTopics": [
+          "day5"
+        ],
+        "currentTopic": "day5"
+      },
+      "provider": "google",
+      "createdAt": "2026-10-08T07:18:32.777Z"
+    },
+    {
+      "id": "usr_1791666501517",
+      "name": "teststudent",
+      "email": "teststudent@gmail.com",
+      "phone": null,
+      "passwordHash": "otp_verified_account",
+      "role": "user",
+      "emailVerified": true,
+      "enrolledInNetPro40": true,
+      "progress": {
+        "completedTopics": [],
+        "currentTopic": "day1"
+      },
+      "createdAt": "2026-10-10T21:08:21.517Z"
+    },
+    {
+      "id": "usr_1791666501537",
+      "name": "User 3210",
+      "email": "+919876543210@mobile.techfin.com",
+      "phone": "+919876543210",
+      "passwordHash": "otp_verified_account",
+      "role": "user",
+      "emailVerified": true,
+      "enrolledInNetPro40": true,
+      "progress": {
+        "completedTopics": [],
+        "currentTopic": "day1"
+      },
+      "createdAt": "2026-10-10T21:08:21.537Z"
+    },
+    {
+      "id": "usr_1791692846847",
+      "name": "imranhp108",
+      "email": "imranhp108@gmail.com",
+      "phone": null,
+      "passwordHash": "otp_verified_account",
+      "role": "user",
+      "emailVerified": true,
+      "enrolledInNetPro40": true,
+      "progress": {
+        "completedTopics": [],
+        "currentTopic": "day1"
+      },
+      "createdAt": "2026-10-11T04:27:26.847Z"
+    }
+  ],
+  "sessions": {
+    "3ba68d7eb053326ae4ed162383f0492c008c41f3f9ce03c3872664d6e31b0e5a": {
+      "userId": "usr_g_1791402079227",
+      "email": "imran.techfin@gmail.com",
+      "name": "Imran Hussain (Google)",
+      "role": "user",
+      "provider": "google",
+      "createdAt": "2026-10-07T19:41:19.237Z"
+    },
+    "8529349370b9fbec5d75f32b4abeb75b323e0ae30cdc9a9e2f07f7eee55c6fd4": {
+      "userId": "usr_1791403165810",
+      "email": "abc@gmail.com",
+      "name": "Imran Hussain",
+      "role": "user",
+      "createdAt": "2026-10-07T19:59:25.829Z"
+    },
+    "1493629801ccab3fc1920b2b55c415a5619ee506f33adf0c36a29e38a04895e4": {
+      "userId": "usr_1791403165810",
+      "email": "abc@gmail.com",
+      "name": "Imran Hussain",
+      "role": "user",
+      "createdAt": "2026-10-07T20:02:11.657Z"
+    },
+    "a416fbe5e692060fc81896b8da8008c6873778d98129f7b7bfce1fb91a9caaac": {
+      "userId": "usr_g_1791402079227",
+      "email": "imran.techfin@gmail.com",
+      "name": "Imran Hussain (Google)",
+      "role": "user",
+      "emailVerified": true,
+      "provider": "google",
+      "createdAt": "2026-10-07T20:04:15.947Z"
+    },
+    "5d1da1af0186b74e13739cef126ac816b797dc876badcb6a97b5cfa3951ffb93": {
+      "userId": "usr_g_1791402079227",
+      "email": "imran.techfin@gmail.com",
+      "name": "Imran Hussain (Google)",
+      "role": "user",
+      "emailVerified": true,
+      "provider": "google",
+      "createdAt": "2026-10-07T20:04:22.848Z"
+    },
+    "0c3781217ab050225dfafd8ca7405a59fe0bd88d364a4f5b19c7bd930a4bc284": {
+      "userId": "usr_1791403730294",
+      "email": "testuser@gmail.com",
+      "name": "Test User",
+      "role": "user",
+      "emailVerified": true,
+      "createdAt": "2026-10-07T20:08:50.294Z"
+    },
+    "adm_7b8d67d292990ac6a264582327414673487302cf9d46f121bd45d68272c57814": {
+      "userId": "usr_admin",
+      "email": "admin@techfin.com",
+      "name": "Imran Hussain",
+      "role": "admin",
+      "createdAt": "2026-10-07T20:10:00.315Z"
+    },
+    "adm_4f70cb7c971bcc3da1fb631a19c0b29d5132eac9858b989f67a85a1a67922226": {
+      "userId": "usr_admin",
+      "email": "admin@techfin.com",
+      "name": "Imran Hussain",
+      "role": "admin",
+      "createdAt": "2026-10-07T20:14:30.548Z"
+    },
+    "adm_05c55a87ffb2315660f9f5ef477457600985573e8929de9b37635ce1b83be27c": {
+      "userId": "usr_admin",
+      "email": "admin@techfin.com",
+      "name": "Imran Hussain",
+      "role": "admin",
+      "createdAt": "2026-10-07T20:16:59.995Z"
+    },
+    "b5a23ee963fa1d2b77423cf05d981a51dac661b4579a5666100f638825e9c546": {
+      "userId": "usr_g_1791404497431",
+      "email": "user.authenticated@gmail.com",
+      "name": "Google Verified User",
+      "role": "user",
+      "emailVerified": true,
+      "provider": "google",
+      "createdAt": "2026-10-07T20:21:37.431Z"
+    },
+    "adm_d22c10c0c1d74c23132d70456a1e8ab43f2e3aca9889b5ff121bd03bfdd8f592": {
+      "userId": "usr_admin",
+      "email": "admin@techfin.com",
+      "name": "Imran Hussain",
+      "role": "admin",
+      "createdAt": "2026-10-07T20:28:25.362Z"
+    },
+    "62f9ff5a1525aab53725e2a3389a281dd1f18645ca5535305d88de5ca647db7e": {
+      "userId": "usr_demo",
+      "email": "student@techfin.com",
+      "name": "Reader Demo",
+      "role": "user",
+      "emailVerified": true,
+      "enrolledInNetPro40": true,
+      "createdAt": "2026-10-08T07:03:10.272Z"
+    },
+    "6ee95ddfaa4755a611005ea727a23c21293af2e1de617e5ad18dcd1c1a28a931": {
+      "userId": "usr_g_1791443912774",
+      "email": "razaansari61501@gmail.com",
+      "name": "razaansari61501",
+      "role": "user",
+      "emailVerified": true,
+      "enrolledInNetPro40": true,
+      "provider": "google",
+      "createdAt": "2026-10-08T07:18:32.795Z"
+    },
+    "f80326ad502c41cf04c45d1fdc81aa8ed944739f3e12cfaddca76a6ac4efd15e": {
+      "userId": "usr_1791666501517",
+      "email": "teststudent@gmail.com",
+      "phone": null,
+      "name": "teststudent",
+      "role": "user",
+      "emailVerified": true,
+      "enrolledInNetPro40": true,
+      "createdAt": "2026-10-10T21:08:21.520Z"
+    },
+    "a4777c01c44a0a8362b3b75050656034e01c7ad0a603a8e7cc427487dbe3ff59": {
+      "userId": "usr_1791666501537",
+      "email": "+919876543210@mobile.techfin.com",
+      "phone": "+919876543210",
+      "name": "User 3210",
+      "role": "user",
+      "emailVerified": true,
+      "enrolledInNetPro40": true,
+      "createdAt": "2026-10-10T21:08:21.537Z"
+    },
+    "61d8be86c2dfd9c60144d8f5fb13e068a141343c3da7c6acaee35857ae1e8080": {
+      "userId": "usr_1791692846847",
+      "email": "imranhp108@gmail.com",
+      "phone": null,
+      "name": "imranhp108",
+      "role": "user",
+      "emailVerified": true,
+      "enrolledInNetPro40": true,
+      "createdAt": "2026-10-11T04:27:26.853Z"
+    },
+    "2c568ea9846b46804245787293886fd954727ca6342ae07b3f9a75adf5e5fbb2": {
+      "userId": "usr_1791692846847",
+      "email": "imranhp108@gmail.com",
+      "phone": null,
+      "name": "imranhp108",
+      "role": "user",
+      "emailVerified": true,
+      "enrolledInNetPro40": true,
+      "createdAt": "2026-10-11T04:54:05.694Z"
+    }
+  },
+  "content": [
+    {
+      "id": "tf-netpro40",
+      "type": "ebook",
+      "title": "NetPro 40: Computer Network Fundamentals & Troubleshooting Deep Dive",
+      "author": "Imran Hussain",
+      "category": "Technical",
+      "tags": [
+        "Networking",
+        "OSI",
+        "TCP/IP",
+        "Subnetting",
+        "Wireshark",
+        "Troubleshooting"
+      ],
+      "description": "40 In-Depth Modules covering Computer Network Architecture, OSI 7-Layer, TCP/IP Suite, Subnetting, DNS, DHCP, VPN, Firewalls, and Enterprise Diagnostics.",
+      "fileUrl": "ebooks/networking-fundamentals.html",
+      "readTime": "40 Topics Master Class",
+      "isPublished": true,
+      "createdAt": "2026-10-07T19:34:38.993Z"
+    }
+  ],
+  "accessLogs": [],
+  "pendingVerifications": {
+    "imran.test@example.com": {
+      "name": "Imran User",
+      "email": "imran.test@example.com",
+      "passwordHash": "ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f",
+      "code": "194951",
+      "expiresAt": 1791405321812
+    },
+    "newstudent_1791442990276@gmail.com": {
+      "name": "New Student",
+      "email": "newstudent_1791442990276@gmail.com",
+      "passwordHash": "b926e929192ee30e047ab90fc9d1e0d811a4ccc5f0411da2047abfccc8cd8f60",
+      "code": "805849",
+      "expiresAt": 1791443890290,
+      "attempts": 0
+    },
+    "xyz@gmail.com": {
+      "name": "Mohd Monis",
+      "email": "xyz@gmail.com",
+      "passwordHash": "8dc01c1031eb2418ef33ecc159a6025970cac5df018dc975194ea67c5f58a20e",
+      "code": "147548",
+      "expiresAt": 1791445755140,
+      "attempts": 0
+    },
+    "student@techfin.com": {
+      "identifier": "student@techfin.com",
+      "type": "email",
+      "code": "988864",
+      "expiresAt": 1791667568333,
+      "attempts": 1
+    },
+    "+918217085632": {
+      "identifier": "+918217085632",
+      "type": "phone",
+      "code": "935292",
+      "expiresAt": 1791668014144,
+      "attempts": 0
+    },
+    "imranhp108@gmail.com": {
+      "identifier": "imranhp108@gmail.com",
+      "type": "email",
+      "code": "680531",
+      "expiresAt": 1791696452934,
+      "attempts": 0
+    }
+  }
+}

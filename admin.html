@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechFin - Private Admin Content Portal</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    body {
+      background: #080c16;
+      color: #f1f5f9;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    .admin-auth-wrapper {
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .admin-login-card {
+      background: #111827;
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      width: 100%;
+      max-width: 440px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+    }
+    .admin-portal-dashboard {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem 5rem;
+      display: none;
+    }
+    .admin-top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .admin-metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .metric-card {
+      background: #151d30;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+    }
+    .metric-val {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #fff;
+      font-family: var(--font-heading);
+    }
+    .metric-title {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+    .content-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    .content-table th, .content-table td {
+      padding: 0.85rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border-color);
+      font-size: 0.88rem;
+    }
+    .content-table th {
+      color: var(--text-muted);
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.02);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ADMIN AUTHENTICATION SCREEN -->
+  <div class="admin-auth-wrapper" id="admin-auth-view">
+    <div class="admin-login-card">
+      <div style="text-align: center; margin-bottom: 1.5rem;">
+        <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #f59e0b, #d97706); border-radius: 12px; margin: 0 auto 0.8rem; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">🔐</div>
+        <h2 style="font-family: var(--font-heading); font-size: 1.5rem; color: #fff;">TechFin Admin Portal</h2>
+        <p style="font-size: 0.84rem; color: var(--accent-indigo); margin-top: 0.3rem; font-weight: 600;">
+          GrowWithTechFin. &bull; Content Management
+        </p>
+      </div>
+
+      <div id="admin-login-error" style="display: none; background: rgba(239, 68, 68, 0.15); border: 1px solid #ef4444; color: #f87171; padding: 0.6rem; border-radius: 4px; font-size: 0.84rem; margin-bottom: 1.2rem;"></div>
+
+      <form id="admin-login-form">
+        <div class="form-group">
+          <label class="form-label" for="adm-email">Admin Email</label>
+          <input type="email" id="adm-email" class="form-input" value="admin@techfin.com" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="adm-password">Admin Password</label>
+          <input type="password" id="adm-password" class="form-input" value="admin123" required>
+        </div>
+        <button type="submit" id="btn-admin-submit" class="btn btn-gold" style="width: 100%; margin-top: 0.5rem;">
+          Sign In to Admin Engine
+        </button>
+      </form>
+      <div style="margin-top: 1.2rem; text-align: center;">
+        <a href="/" style="font-size: 0.82rem; color: var(--accent-indigo); text-decoration: none;">&larr; Return to Public TechFin Portal</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADMIN DASHBOARD (VISIBLE ONLY AFTER VERIFIED ADMIN LOGIN) -->
+  <div class="admin-portal-dashboard" id="admin-dashboard-view">
+    <div class="admin-top-bar">
+      <div>
+        <h1 style="font-family: var(--font-heading); font-size: 1.8rem; color: #fff;">TechFin Admin Console</h1>
+        <p style="font-size: 0.86rem; color: var(--accent-emerald);">GrowWithTechFin. &bull; Authenticated as Imran Hussain (System Administrator)</p>
+      </div>
+      <div style="display: flex; gap: 0.8rem;">
+        <a href="/" class="btn btn-outline btn-sm" target="_blank">View Live Public Site &rarr;</a>
+        <button class="btn btn-glass btn-sm" id="btn-admin-logout">Sign Out</button>
+      </div>
+    </div>
+
+    <!-- Metrics -->
+    <div class="admin-metrics-grid">
+      <div class="metric-card">
+        <div class="metric-title">Published E-Books & Items</div>
+        <div class="metric-val" id="metric-items">1</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-title">Verified Registered Users</div>
+        <div class="metric-val" id="metric-users">2</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-title">Database Storage</div>
+        <div class="metric-val" style="color: var(--accent-emerald); font-size: 1.3rem;">database.json (Active)</div>
+      </div>
+    </div>
+
+    <!-- Upload Box -->
+    <div style="background: #151d30; border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 2rem; margin-bottom: 2.5rem;">
+      <h3 style="font-family: var(--font-heading); font-size: 1.3rem; margin-bottom: 1.2rem; color: #fff;">
+        Publish New Content to TechFin Database
+      </h3>
+
+      <form id="admin-new-content-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="pub-type">Content Type *</label>
+            <select id="pub-type" class="form-select" required>
+              <option value="ebook">📖 E-Book</option>
+              <option value="tech-blog">💻 Technical Blog</option>
+              <option value="course">🎓 Video Masterclass Course</option>
+              <option value="finance">📈 Finance (Forex, Nifty, Binance)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="pub-category">Category *</label>
+            <select id="pub-category" class="form-select" required>
+              <option value="Technical" selected>Technical</option>
+              <option value="Finance">Finance</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="pub-title">Title *</label>
+          <input type="text" id="pub-title" class="form-input" placeholder="e.g. Cisco Enterprise Routing Architecture" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="pub-author">Author Name</label>
+            <input type="text" id="pub-author" class="form-input" value="Imran Hussain">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="pub-tags">Tags (Comma Separated)</label>
+            <input type="text" id="pub-tags" class="form-input" value="Networking, Linux, Cloud, Cyber">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="pub-readtime">Read Time / Modules Count</label>
+          <input type="text" id="pub-readtime" class="form-input" placeholder="e.g. 40 Topics Master Class">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="pub-desc">Description / Overview *</label>
+          <textarea id="pub-desc" class="form-textarea" placeholder="Comprehensive summary of the content..." style="min-height: 80px;" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="pub-fileurl">HTML File Path or Link (Optional)</label>
+          <input type="text" id="pub-fileurl" class="form-input" placeholder="e.g. ebooks/networking-fundamentals.html or https://...">
+        </div>
+
+        <button type="submit" id="btn-pub-submit" class="btn btn-gold">
+          🚀 Publish Content to Database
+        </button>
+      </form>
+    </div>
+
+    <!-- Published Items Table -->
+    <div style="background: #151d30; border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 2rem;">
+      <h3 style="font-family: var(--font-heading); font-size: 1.3rem; margin-bottom: 1rem; color: #fff;">
+        Existing Content in Database
+      </h3>
+      <table class="content-table">
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Tags</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="admin-content-tbody">
+          <!-- Populated via JS -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="toast-box" id="toast-box"></div>
+
+  <script>
+    let adminToken = localStorage.getItem('techfin_admin_token');
+
+    function showToast(msg, type = 'success') {
+      const box = document.getElementById('toast-box');
+      const item = document.createElement('div');
+      item.className = 'toast-item ' + type;
+      item.textContent = msg;
+      box.appendChild(item);
+      setTimeout(() => item.remove(), 3200);
+    }
+
+    async function checkAdminAuth() {
+      if (!adminToken) {
+        document.getElementById('admin-auth-view').style.display = 'flex';
+        document.getElementById('admin-dashboard-view').style.display = 'none';
+        return;
+      }
+      try {
+        const res = await fetch('/api/admin/stats', {
+          headers: { 'Authorization': `Bearer ${adminToken}` }
+        });
+        if (res.ok) {
+          const stats = await res.json();
+          document.getElementById('admin-auth-view').style.display = 'none';
+          document.getElementById('admin-dashboard-view').style.display = 'block';
+          document.getElementById('metric-items').textContent = stats.totalContent;
+          document.getElementById('metric-users').textContent = stats.verifiedUsers;
+          loadContentTable();
+          return;
+        }
+      } catch (e) {
+        // Offline / file protocol fallback:
+        if (adminToken === 'adm_local_offline' || adminToken.startsWith('adm_')) {
+          document.getElementById('admin-auth-view').style.display = 'none';
+          document.getElementById('admin-dashboard-view').style.display = 'block';
+          loadContentTable();
+          return;
+        }
+      }
+
+      adminToken = null;
+      localStorage.removeItem('techfin_admin_token');
+      document.getElementById('admin-auth-view').style.display = 'flex';
+      document.getElementById('admin-dashboard-view').style.display = 'none';
+    }
+
+    async function loadContentTable() {
+      const tbody = document.getElementById('admin-content-tbody');
+      try {
+        const res = await fetch('/api/content');
+        if (res.ok) {
+          const data = await res.json();
+          renderContentRows(data.content || []);
+          return;
+        }
+      } catch (e) {}
+
+      // Fallback local items
+      const localContent = JSON.parse(localStorage.getItem('techfin_local_content') || '[]');
+      if (localContent.length > 0) {
+        renderContentRows(localContent);
+      } else {
+        renderContentRows([
+          {
+            id: 'tf-netpro40',
+            type: 'ebook',
+            title: 'NetPro 40: Computer Network Fundamentals & Troubleshooting',
+            author: 'Imran Hussain',
+            tags: ['Networking', 'OSI', 'TCP/IP', 'Wireshark']
+          }
+        ]);
+      }
+    }
+
+    function renderContentRows(items) {
+      const tbody = document.getElementById('admin-content-tbody');
+      tbody.innerHTML = items.map(item => `
+        <tr>
+          <td><span style="font-family: monospace; color: var(--accent-cyan); text-transform: uppercase;">[${item.type}]</span></td>
+          <td><strong>${item.title}</strong></td>
+          <td>${item.author}</td>
+          <td>${(item.tags || []).join(', ')}</td>
+          <td>
+            <button class="btn btn-outline btn-sm" style="color: #f43f5e; border-color: #f43f5e;" onclick="deleteContent('${item.id}')">Delete</button>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    async function deleteContent(id) {
+      if (confirm('Delete this item from the database?')) {
+        try {
+          await fetch(`/api/admin/content/${id}`, {
+            method: 'DELETE',
+            headers: { 'Authorization': `Bearer ${adminToken}` }
+          });
+        } catch(e) {}
+        showToast('Item deleted.');
+        checkAdminAuth();
+      }
+    }
+
+    document.getElementById('admin-login-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('adm-email').value.trim();
+      const password = document.getElementById('adm-password').value;
+      const errBox = document.getElementById('admin-login-error');
+
+      try {
+        const res = await fetch('/api/admin/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password })
+        });
+        if (res.ok) {
+          const data = await res.json();
+          adminToken = data.adminToken;
+          localStorage.setItem('techfin_admin_token', adminToken);
+          showToast('Admin authenticated successfully!');
+          checkAdminAuth();
+          return;
+        } else {
+          const data = await res.json();
+          throw new Error(data.error || 'Authentication failed.');
+        }
+      } catch (err) {
+        // Fallback for file:/// protocol or offline mode
+        if (email === 'admin@techfin.com' && password === 'admin123') {
+          adminToken = 'adm_local_offline';
+          localStorage.setItem('techfin_admin_token', adminToken);
+          showToast('Admin authenticated (Offline Mode)!');
+          checkAdminAuth();
+          return;
+        }
+        errBox.textContent = err.message;
+        errBox.style.display = 'block';
+      }
+    });
+
+    document.getElementById('btn-admin-logout').addEventListener('click', () => {
+      adminToken = null;
+      localStorage.removeItem('techfin_admin_token');
+      checkAdminAuth();
+      showToast('Logged out from admin console.', 'info');
+    });
+
+    document.getElementById('admin-new-content-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const payload = {
+        type: document.getElementById('pub-type').value,
+        category: document.getElementById('pub-category').value,
+        title: document.getElementById('pub-title').value.trim(),
+        author: document.getElementById('pub-author').value.trim(),
+        tags: document.getElementById('pub-tags').value.split(',').map(s => s.trim()),
+        readTime: document.getElementById('pub-readtime').value.trim(),
+        description: document.getElementById('pub-desc').value.trim(),
+        fileUrl: document.getElementById('pub-fileurl').value.trim()
+      };
+
+      try {
+        const res = await fetch('/api/admin/content', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${adminToken}`
+          },
+          body: JSON.stringify(payload)
+        });
+        if (res.ok) {
+          showToast('Published live to database!');
+          document.getElementById('admin-new-content-form').reset();
+          checkAdminAuth();
+          return;
+        }
+      } catch (err) {}
+
+      // Fallback local save
+      const existing = JSON.parse(localStorage.getItem('techfin_local_content') || '[]');
+      existing.unshift({ ...payload, id: 'tf-item-' + Date.now() });
+      localStorage.setItem('techfin_local_content', JSON.stringify(existing));
+      showToast('Published live (Local Database)!');
+      document.getElementById('admin-new-content-form').reset();
+      checkAdminAuth();
+    });
+
+    checkAdminAuth();
+  </script>
+</body>
+</html>
