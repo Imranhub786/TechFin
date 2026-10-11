@@ -1077,11 +1077,52 @@ tbody tr:last-child td {
     }
 
     .menu-toggle {
-        display: flex;
+        display: none !important;
     }
 }
 
 @media (max-width: 768px) {
+    .menu-toggle {
+        display: none !important;
+    }
+
+    .header-content {
+        padding: 0 12px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .logo {
+        gap: 8px;
+    }
+
+    .logo-icon {
+        width: 34px;
+        height: 34px;
+        font-size: 16px;
+    }
+
+    .logo-text {
+        font-size: 17px;
+    }
+
+    .logo-subtitle {
+        font-size: 9px;
+        letter-spacing: 0.5px;
+    }
+
+    .progress-info {
+        font-size: 11px;
+        gap: 6px;
+    }
+
+    .progress-bar-header {
+        width: 75px;
+        height: 5px;
+    }
+
     .main-content {
         padding: 20px;
     }
