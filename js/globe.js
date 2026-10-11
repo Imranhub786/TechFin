@@ -45,19 +45,73 @@ class WaltGlobalVisualizer {
     this.setupResolution();
     window.addEventListener('resize', () => this.setupResolution());
 
-    // 1. Generate Global Major Technology & Financial Hubs
+    // 1. Generate Global Major Technology & Financial Hubs Across The World
     const hubs = [
-      { name: "Silicon Valley", lat: 37.77, lon: -122.41, ping: "1.8ms" },
-      { name: "New York City", lat: 40.71, lon: -74.00, ping: "2.4ms", showLabel: true },
-      { name: "London", lat: 51.50, lon: -0.12, ping: "3.2ms" },
-      { name: "Frankfurt", lat: 50.11, lon: 8.68, ping: "4.1ms" },
-      { name: "Dubai", lat: 25.20, lon: 55.27, ping: "5.6ms", showLabel: true },
-      { name: "Delhi", lat: 28.61, lon: 77.21, ping: "2.8ms", showLabel: true },
-      { name: "Bangalore", lat: 12.97, lon: 77.59, ping: "3.0ms", showLabel: true },
-      { name: "Singapore", lat: 1.35, lon: 103.82, ping: "3.5ms", showLabel: true },
-      { name: "Tokyo", lat: 35.67, lon: 139.65, ping: "4.8ms" },
-      { name: "Sydney", lat: -33.86, lon: 151.20, ping: "6.2ms" },
-      { name: "São Paulo", lat: -23.55, lon: -46.63, ping: "7.1ms" }
+      // --- North America ---
+      { name: "New York", lat: 40.71, lon: -74.00, ping: "2.1ms" },
+      { name: "San Francisco", lat: 37.77, lon: -122.41, ping: "1.4ms" },
+      { name: "Los Angeles", lat: 34.05, lon: -118.24, ping: "1.9ms" },
+      { name: "Seattle", lat: 47.60, lon: -122.33, ping: "2.5ms" },
+      { name: "Chicago", lat: 41.88, lon: -87.63, ping: "2.3ms" },
+      { name: "Toronto", lat: 43.65, lon: -79.38, ping: "3.1ms" },
+      { name: "Vancouver", lat: 49.28, lon: -123.12, ping: "3.4ms" },
+      { name: "Miami", lat: 25.76, lon: -80.19, ping: "2.8ms" },
+      { name: "Austin", lat: 30.27, lon: -97.74, ping: "2.2ms" },
+      { name: "Mexico City", lat: 19.43, lon: -99.13, ping: "4.5ms" },
+
+      // --- South America ---
+      { name: "São Paulo", lat: -23.55, lon: -46.63, ping: "6.2ms" },
+      { name: "Buenos Aires", lat: -34.60, lon: -58.38, ping: "7.1ms" },
+      { name: "Bogotá", lat: 4.71, lon: -74.07, ping: "5.8ms" },
+      { name: "Santiago", lat: -33.45, lon: -70.67, ping: "7.4ms" },
+      { name: "Lima", lat: -12.04, lon: -77.04, ping: "6.9ms" },
+      { name: "Rio de Janeiro", lat: -22.91, lon: -43.17, ping: "6.5ms" },
+
+      // --- Europe ---
+      { name: "London", lat: 51.50, lon: -0.12, ping: "1.8ms" },
+      { name: "Frankfurt", lat: 50.11, lon: 8.68, ping: "2.4ms" },
+      { name: "Paris", lat: 48.85, lon: 2.35, ping: "2.2ms" },
+      { name: "Amsterdam", lat: 52.37, lon: 4.89, ping: "1.9ms" },
+      { name: "Dublin", lat: 53.35, lon: -6.26, ping: "2.7ms" },
+      { name: "Zurich", lat: 47.37, lon: 8.54, ping: "3.0ms" },
+      { name: "Madrid", lat: 40.42, lon: -3.70, ping: "3.4ms" },
+      { name: "Stockholm", lat: 59.33, lon: 18.06, ping: "3.8ms" },
+      { name: "Berlin", lat: 52.52, lon: 13.40, ping: "2.6ms" },
+      { name: "Rome", lat: 41.90, lon: 12.49, ping: "3.5ms" },
+      { name: "Warsaw", lat: 52.23, lon: 21.01, ping: "4.1ms" },
+      { name: "Vienna", lat: 48.20, lon: 16.37, ping: "3.2ms" },
+
+      // --- Middle East & Africa ---
+      { name: "Dubai", lat: 25.20, lon: 55.27, ping: "3.6ms" },
+      { name: "Riyadh", lat: 24.71, lon: 46.67, ping: "4.2ms" },
+      { name: "Doha", lat: 25.28, lon: 51.53, ping: "3.9ms" },
+      { name: "Cairo", lat: 30.04, lon: 31.23, ping: "5.1ms" },
+      { name: "Johannesburg", lat: -26.20, lon: 28.04, ping: "8.2ms" },
+      { name: "Cape Town", lat: -33.92, lon: 18.42, ping: "8.7ms" },
+      { name: "Nairobi", lat: -1.29, lon: 36.82, ping: "7.5ms" },
+      { name: "Lagos", lat: 6.52, lon: 3.38, ping: "7.9ms" },
+
+      // --- Asia ---
+      { name: "Delhi", lat: 28.61, lon: 77.21, ping: "2.8ms" },
+      { name: "Mumbai", lat: 19.07, lon: 72.87, ping: "2.9ms" },
+      { name: "Bangalore", lat: 12.97, lon: 77.59, ping: "3.0ms" },
+      { name: "Hyderabad", lat: 17.38, lon: 78.48, ping: "3.2ms" },
+      { name: "Singapore", lat: 1.35, lon: 103.82, ping: "2.1ms" },
+      { name: "Tokyo", lat: 35.67, lon: 139.65, ping: "2.5ms" },
+      { name: "Seoul", lat: 37.56, lon: 126.97, ping: "2.7ms" },
+      { name: "Hong Kong", lat: 22.31, lon: 114.17, ping: "3.0ms" },
+      { name: "Shanghai", lat: 31.23, lon: 121.47, ping: "3.3ms" },
+      { name: "Beijing", lat: 39.90, lon: 116.40, ping: "3.5ms" },
+      { name: "Taipei", lat: 25.03, lon: 121.56, ping: "3.8ms" },
+      { name: "Bangkok", lat: 13.75, lon: 100.50, ping: "4.2ms" },
+      { name: "Jakarta", lat: -6.20, lon: 106.84, ping: "4.7ms" },
+      { name: "Kuala Lumpur", lat: 3.14, lon: 101.69, ping: "3.9ms" },
+
+      // --- Oceania ---
+      { name: "Sydney", lat: -33.86, lon: 151.20, ping: "5.4ms" },
+      { name: "Melbourne", lat: -37.81, lon: 144.96, ping: "5.8ms" },
+      { name: "Auckland", lat: -36.85, lon: 174.76, ping: "6.5ms" },
+      { name: "Perth", lat: -31.95, lon: 115.86, ping: "6.1ms" }
     ];
 
     this.nodes = hubs.map(h => {
@@ -70,7 +124,6 @@ class WaltGlobalVisualizer {
         phi,
         theta,
         ping: h.ping,
-        showLabel: h.showLabel || false,
         pulseOffset: Math.random() * Math.PI * 2
       };
     });
@@ -78,29 +131,53 @@ class WaltGlobalVisualizer {
     // 2. Generate 3D Continental Landmass Point Matrix
     this.generateContinentDots();
 
-    // 3. Generate Intercontinental Data Arcs
-    const routes = [
-      [0, 1], // Silicon Valley -> NYC
-      [1, 2], // NYC -> London
-      [2, 3], // London -> Frankfurt
-      [3, 4], // Frankfurt -> Dubai
-      [4, 5], // Dubai -> Delhi
-      [5, 6], // Delhi -> Bangalore
-      [6, 7], // Bangalore -> Singapore
-      [7, 8], // Singapore -> Tokyo
-      [8, 9], // Tokyo -> Sydney
-      [0, 8], // Silicon Valley -> Tokyo (Trans-Pacific)
-      [1, 10], // NYC -> São Paulo
-      [7, 0]  // Singapore -> Silicon Valley
+    // 3. Generate Intercontinental Data Arcs Between Major Global Hubs
+    const routePairs = [
+      ["San Francisco", "New York"],
+      ["New York", "London"],
+      ["London", "Frankfurt"],
+      ["Frankfurt", "Paris"],
+      ["London", "Amsterdam"],
+      ["Dublin", "Frankfurt"],
+      ["Frankfurt", "Dubai"],
+      ["Dubai", "Riyadh"],
+      ["Dubai", "Mumbai"],
+      ["Dubai", "Delhi"],
+      ["Delhi", "Bangalore"],
+      ["Mumbai", "Hyderabad"],
+      ["Bangalore", "Singapore"],
+      ["Singapore", "Hong Kong"],
+      ["Hong Kong", "Tokyo"],
+      ["Tokyo", "Seoul"],
+      ["Shanghai", "Beijing"],
+      ["Singapore", "Sydney"],
+      ["Sydney", "Melbourne"],
+      ["Sydney", "Auckland"],
+      ["San Francisco", "Tokyo"],
+      ["Seattle", "Seoul"],
+      ["Los Angeles", "Sydney"],
+      ["New York", "São Paulo"],
+      ["São Paulo", "Buenos Aires"],
+      ["Miami", "Bogotá"],
+      ["London", "Lagos"],
+      ["Cairo", "Johannesburg"],
+      ["Singapore", "San Francisco"]
     ];
 
-    this.arcs = routes.map(([fromIdx, toIdx], i) => ({
-      from: this.nodes[fromIdx],
-      to: this.nodes[toIdx],
-      progress: (i * 0.12) % 1,
-      speed: 0.004 + (i % 3) * 0.002,
-      altitude: 0.22 + (i % 4) * 0.04
-    }));
+    this.arcs = [];
+    routePairs.forEach(([fromName, toName], i) => {
+      const fromNode = this.nodes.find(n => n.name === fromName);
+      const toNode = this.nodes.find(n => n.name === toName);
+      if (fromNode && toNode) {
+        this.arcs.push({
+          from: fromNode,
+          to: toNode,
+          progress: (i * 0.07) % 1,
+          speed: 0.0035 + (i % 3) * 0.0015,
+          altitude: 0.18 + (i % 4) * 0.04
+        });
+      }
+    });
 
     // 4. Interactive Drag & Mouse Events
     this.setupInteractivity();
@@ -427,58 +504,79 @@ class WaltGlobalVisualizer {
       }
     });
 
-    // --- 6. GLOBAL CYBER NODES & BEACONS WITH CITY LABELS ---
+    // --- 6. GLOBAL CYBER NODES & ROTATING 3D CITY LABELS ---
+    const visibleNodes = [];
     this.nodes.forEach(node => {
       const p = this.project(node.phi, node.theta, this.rotY, this.rotX);
-      if (p.visible && p.z > -r * 0.1) {
-        const depthAlpha = Math.min(1, Math.max(0.4, (p.z + r * 0.2) / (r * 1.2)));
+      if (p.visible && p.z > -r * 0.12) {
+        const depthAlpha = Math.min(1, Math.max(0, (p.z + r * 0.12) / (r * 1.05)));
+        visibleNodes.push({ node, p, depthAlpha });
+      }
+    });
 
-        // Outer glow ring
+    // Sort back-to-front so closer elements render cleanly over distant ones
+    visibleNodes.sort((a, b) => a.p.z - b.p.z);
+
+    visibleNodes.forEach(({ node, p, depthAlpha }) => {
+      if (depthAlpha <= 0.05) return;
+
+      // Outer glow halo
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, 4.5, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(99, 102, 241, ${depthAlpha * 0.22})`;
+      ctx.fill();
+
+      // Core glowing city node dot
+      ctx.fillStyle = `rgba(56, 189, 248, ${depthAlpha})`;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, 2.6, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Radar pulse wave animation
+      const pulse = (now * 2.2 + node.pulseOffset) % 2;
+      const pulseRadius = 3 + pulse * 11;
+      const pulseAlpha = Math.max(0, 1 - pulse * 0.6) * depthAlpha * 0.6;
+      ctx.strokeStyle = `rgba(6, 182, 212, ${pulseAlpha})`;
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, pulseRadius, 0, Math.PI * 2);
+      ctx.stroke();
+
+      // Rotating 3D City Name Label
+      if (depthAlpha > 0.18) {
+        ctx.save();
+        const fontSize = Math.max(8, Math.min(10.5, 7.5 + depthAlpha * 3));
+        ctx.font = `600 ${fontSize}px 'JetBrains Mono', monospace`;
+
+        const text = node.name;
+        const textWidth = ctx.measureText(text).width;
+        const tx = p.x + 6;
+        const ty = p.y - 3;
+        const padX = 4;
+        const padY = 2;
+        const boxH = fontSize + padY * 2;
+
+        // Dark translucent glass pill background
+        ctx.fillStyle = `rgba(10, 14, 26, ${depthAlpha * 0.78})`;
         ctx.beginPath();
-        ctx.arc(p.x, p.y, 6, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(99, 102, 241, ${depthAlpha * 0.12})`;
+        if (ctx.roundRect) {
+          ctx.roundRect(tx - padX, ty - fontSize + 1, textWidth + padX * 2, boxH, 3);
+        } else {
+          ctx.rect(tx - padX, ty - fontSize + 1, textWidth + padX * 2, boxH);
+        }
         ctx.fill();
 
-        // Core dot
-        ctx.fillStyle = `rgba(56, 189, 248, ${depthAlpha})`;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, 3.5, 0, Math.PI * 2);
-        ctx.fill();
-
-        // Radar pulse animation
-        const pulse = (now * 2 + node.pulseOffset) % 2;
-        const pulseRadius = 4 + pulse * 14;
-        const pulseAlpha = Math.max(0, 1 - pulse * 0.5) * depthAlpha * 0.7;
-
-        ctx.strokeStyle = `rgba(6, 182, 212, ${pulseAlpha})`;
-        ctx.lineWidth = 1.2;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, pulseRadius, 0, Math.PI * 2);
+        // Subtle glowing border around pill
+        ctx.strokeStyle = `rgba(99, 102, 241, ${depthAlpha * 0.38})`;
+        ctx.lineWidth = 0.8;
         ctx.stroke();
 
-        // City name labels on globe (only for featured cities)
-        if (node.showLabel && depthAlpha > 0.5) {
-          ctx.save();
-          ctx.font = `600 ${Math.max(9, 10 * depthAlpha)}px 'JetBrains Mono', monospace`;
-          ctx.fillStyle = `rgba(165, 180, 252, ${depthAlpha * 0.95})`;
-          ctx.shadowColor = 'rgba(99, 102, 241, 0.5)';
-          ctx.shadowBlur = 4;
-          
-          // Text background pill
-          const textWidth = ctx.measureText(node.name).width;
-          const tx = p.x + 8;
-          const ty = p.y - 6;
-          
-          ctx.fillStyle = `rgba(10, 14, 26, ${depthAlpha * 0.7})`;
-          ctx.beginPath();
-          ctx.roundRect(tx - 3, ty - 10, textWidth + 6, 14, 3);
-          ctx.fill();
-          ctx.shadowBlur = 0;
-          
-          ctx.fillStyle = `rgba(165, 180, 252, ${depthAlpha * 0.95})`;
-          ctx.fillText(node.name, tx, ty);
-          ctx.restore();
-        }
+        // High-contrast glowing typography
+        ctx.fillStyle = `rgba(224, 231, 255, ${depthAlpha * 0.95})`;
+        ctx.shadowColor = 'rgba(99, 102, 241, 0.45)';
+        ctx.shadowBlur = 3;
+        ctx.fillText(text, tx, ty);
+        ctx.restore();
       }
     });
 
