@@ -54,6 +54,38 @@ const App = {
     this.setupListeners();
     this.setupSecurityShield();
     this.applySecurityWatermark();
+    this.initAutoRefreshTracker();
+  },
+
+  // ================= AUTO-REFRESH ON VERCEL DEPLOYMENT =================
+  currentDeploymentVersion: null,
+
+  initAutoRefreshTracker() {
+    const checkVersion = async () => {
+      try {
+        const res = await fetch('/api/version?_t=' + Date.now(), { cache: 'no-store' });
+        if (res.ok) {
+          const data = await res.json();
+          if (data && data.version) {
+            if (this.currentDeploymentVersion && this.currentDeploymentVersion !== data.version) {
+              console.log('[Auto-Refresh] New Vercel deployment detected! Refreshing...');
+              if (typeof showToast === 'function') {
+                showToast('⚡ New update deployed on Vercel! Refreshing...', 'info');
+              }
+              setTimeout(() => window.location.reload(), 1200);
+            } else {
+              this.currentDeploymentVersion = data.version;
+            }
+          }
+        }
+      } catch (e) {}
+    };
+
+    checkVersion();
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible') checkVersion();
+    });
+    setInterval(checkVersion, 60000);
   },
 
   // ================= THEME CONTROLLER (LIGHT & DARK MODE) =================

@@ -255,6 +255,15 @@ const server = http.createServer(async (req, res) => {
 
   // ================= API ENDPOINTS =================
   if (pathname.startsWith('/api/')) {
+    // 0. Auto-refresh & Deployment check: GET /api/version
+    if (pathname === '/api/version' && req.method === 'GET') {
+      return sendJson(res, 200, {
+        version: process.env.VERCEL_GIT_COMMIT_SHA || process.env.VERCEL_DEPLOYMENT_ID || '1.1.0',
+        timestamp: Date.now(),
+        status: 'active'
+      });
+    }
+
     const db = getDb();
 
     // 0. TAKEUFORWARD-STYLE DIRECT OTP DISPATCH: POST /api/auth/otp-request

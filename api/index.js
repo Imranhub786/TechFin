@@ -145,7 +145,14 @@ module.exports = async (req, res) => {
 
   const url = req.url || '';
   const pathname = url.split('?')[0];
-  const db = getDb();
+  // 0. Auto-refresh & Vercel deployment detection: GET /api/version
+  if (pathname === '/api/version' && req.method === 'GET') {
+    return sendJson(res, 200, {
+      version: process.env.VERCEL_GIT_COMMIT_SHA || process.env.VERCEL_DEPLOYMENT_ID || '1.1.0',
+      timestamp: Date.now(),
+      status: 'active'
+    });
+  }
 
   // 0a. TAKEUFORWARD DIRECT OTP REQUEST: POST /api/auth/otp-request
   if (pathname === '/api/auth/otp-request' && req.method === 'POST') {

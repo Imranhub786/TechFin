@@ -1112,6 +1112,60 @@ tbody tr:last-child td {
     }
 }
 
+@media (max-width: 480px) {
+    .main-content {
+        padding: 16px 12px;
+    }
+    .header-content {
+        padding: 0 12px;
+    }
+    .logo-text {
+        font-size: 1.05rem;
+    }
+    .hero h1 {
+        font-size: 1.7rem;
+        line-height: 1.2;
+    }
+    .hero p {
+        font-size: 0.95rem;
+    }
+    .hero-stats {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    .content-card {
+        padding: 18px 12px;
+        margin: 16px 0;
+        border-radius: var(--radius-md);
+    }
+    .table-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: 0 -6px;
+    }
+    .table-container table {
+        min-width: 520px;
+    }
+    .diagram-container {
+        padding: 18px 10px;
+        overflow-x: auto;
+    }
+    .diagram-title {
+        font-size: 13px;
+    }
+    .deep-explanation {
+        padding: 16px 12px;
+    }
+    .terminal-window {
+        margin: 14px 0;
+    }
+    .terminal-body {
+        padding: 14px 10px;
+        font-size: 12px;
+    }
+}
+
 /* ===== OVERLAY ===== */
 .sidebar-overlay {
     display: none;
